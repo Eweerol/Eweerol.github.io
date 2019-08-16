@@ -152,6 +152,113 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-OSI参考模型1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="OSPF参考模型"><a href="#OSPF参考模型" class="headerlink" title="OSPF参考模型"></a>OSPF参考模型</h2><p>解决不同厂商之间的计算机不能通信的问题，提出OSI参考模型；</p>
+<p><img src="C:%5CUsers%5CHS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1565832400520.png" alt="1565832400520"></p>
+<h4 id="应用层："><a href="#应用层：" class="headerlink" title="应用层："></a>应用层：</h4><p>最靠近用户的一层，为计算机用户提供应用接口，也为用户直接提供网络服务，常见的应用层网络服务协议：HTTP,HTTPS,FTP,POP3,SMTP等</p>
+<p>HTTP：80</p>
+<p>HTTPS:443                   </p>
+<p>FTP-data:20/tcp           # ftp,data</p>
+<p>FTP:21/tcp                      #ftp,control</p>
+<p>POP3:110/tcp                 #Post Office  Protocol  Version3</p>
+<p>SMTP：25  /tcp mail       #Simple Mail  Transfer Protocol</p>
+<h4 id="表示层："><a href="#表示层：" class="headerlink" title="表示层："></a>表示层：</h4><p>集线器属于物理层设备；</p>
+<p>数据链路层：802.3  FR帧中继  PPP点到点协议</p>
+<p>二层广播地址：FF:FF:FF</p>
+<p>网络层：路由，三层交换机，   协议：IP协议</p>
+<p>传输层：建立端到端的服务连接             协议：TCP UDP       </p>
+<h2 id="网络架构模型"><a href="#网络架构模型" class="headerlink" title="网络架构模型"></a>网络架构模型</h2><p><img src="C:%5CUsers%5CHS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1565834283517.png" alt="1565834283517"></p>
+<p>核心层 </p>
+<p><img src="C:%5CUsers%5CHS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1565834344496.png" alt="1565834344496"></p>
+<p>汇聚层/集聚层</p>
+<p>网络互连；</p>
+<p>接入层</p>
+<h2 id="TCP-IP模型"><a href="#TCP-IP模型" class="headerlink" title="TCP/IP模型"></a>TCP/IP模型</h2><p>DOD模型：</p>
+<p>记忆：</p>
+<p><img src="C:%5CUsers%5CHS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1565837589634.png" alt="1565837589634"></p>
+<p><img src="C:%5CUsers%5CHS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1565837613552.png" alt="1565837613552"></p>
+<p><strong>协议具体的作用以及对应端口服务！！！</strong></p>
+<p><img src="C:%5CUsers%5CHS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1565838624548.png" alt="1565838624548"></p>
+<h4 id="Telnet"><a href="#Telnet" class="headerlink" title="Telnet:"></a>Telnet:</h4><p>远程客户端机器( Telnet 客户端)的用户能够访问另一台机器( Telnet 服务器)的资源。，可与选定的远程主机交互的虚拟终端。</p>
+<h4 id="FTP"><a href="#FTP" class="headerlink" title="FTP"></a>FTP</h4><p>FIP ( File Transfer Protocol ，文件传输协议)让你能够传输文件，这可在任何两台使用它的机器之<br>间进行。然而， FTP 不仅仅是协议，还是程序。作为协议， FTP 供应用程序使用;作为程序， FTP<br>用户手工执行与文件相关的任务。 FTP 让你能够访问目录和文件以及执行某些类型的目录操作，如将<br>其移到其他目录中。<br>通过 FTP 访问主机只是第一步，随后用户必须通过身份验证登录，因为系统管理员可能使用密码<br>和用户名来限制访问。要避开这种身份验证，可使用用户名 anonymo邸，但这样获得的访问权将受到<br>限制。<br>即使被用户用作程序， FTP 的功能也仅限于列出和操作目录、输入文件内容以及在主机之间复制<br>文件，而不能远程执行程序。</p>
+<h4 id="NFS"><a href="#NFS" class="headerlink" title="NFS"></a>NFS</h4><p>NFS (NetworkFile System ，网络文件系统)是一种致力于文件共享的协议，让两种不同的文件系<br>统能够互操作。其工作原理大致如下:假设 NFS 服务器端软件运行在 Windows 服务器上，而 NFS<br>户端软件运行在 Unix 主机上， NFS Windows 服务器的部分 RAM 看起来像存储的是 Unix 文件，可<br>Unix 用户使用。虽然 Windows 文件系统和 Unix 文件系统不同一一它们在是否区分大小写、文件名<br>长度、安全性等方面不同，但 Unix 用户和 Windows 用户可像通常那样访问相同的文件，就像文件位<br>于他们通常使用的文件系统中一样。</p>
+<h4 id="SMTP"><a href="#SMTP" class="headerlink" title="SMTP"></a>SMTP</h4><p>SMTP ( SimpleMail Transfer Protocol ，简单邮件传输协议)解决了无处不在的邮件收发需求，它<br>使用假脱机(排队)的方式传递邮件。邮件到达目的地后，将被存储到设备(通常是磁盘)中。目标<br>端的服务器软件定期检查队列，看其中是否有邮件。发现邮件后，它将把它们投递给收件人。 SMTP<br>用于发送电子邮件，而 POP3 IMAP 用于接收邮件。</p>
+<h4 id="POP"><a href="#POP" class="headerlink" title="POP"></a>POP</h4><p>POP (Post Office Protocol ，邮局协议)提供了一种对到来邮件进行存储的机制，其最新版本为<br>POP3 这种协议的工作原理如下:客户端设备连接到 POP3 服务器后，可下载发送给它的邮件。它<br>不允许选择性地下载邮件，但邮件下载后，客户端/服务器交互就结束了，用户可在本地随意删除和<br>操作邮件。</p>
+<h4 id="TLS"><a href="#TLS" class="headerlink" title="TLS"></a>TLS</h4><p>TLS (Transport Layer Security，传输层安全)及其前身 SSL ( Secure Sockets Layer ，安全套接字<br>层)都是加密协议，非常适合用于确保在线数据传输的安全，如 Web 浏览、即时通信、因特阿传真等。</p>
+<h4 id="SIP-（VoIP"><a href="#SIP-（VoIP" class="headerlink" title="SIP （VoIP)"></a>SIP （VoIP)</h4><p>SIP (Session lnitiation Protocol ，会话发起协议)是一种非常流行的信令胁议，用于建立和拆除多<br>媒体通信会话，其应用非常广泛，可用于因特网上的语音和视频呼叫、视频会议、流媒体分发、即时<br>通信、状态信息( presence infonnation )、在线游戏等。</p>
+<h4 id="RTP-VoIP"><a href="#RTP-VoIP" class="headerlink" title="RTP (VoIP)"></a>RTP (VoIP)</h4><p>语音和视频 虽然它最初被设计为 一种组播协议，但现在也被用于单播应用程序中。它常被用于流式<br>媒体、视频会议和一键通( push to tal.k )系统，这使其成了 VoIP (Voice over IP ，四语音)行业的事<br>实标准。</p>
+<h4 id="SNMP"><a href="#SNMP" class="headerlink" title="SNMP"></a>SNMP</h4><p>SNMP (Simple Network Management Protocol ，简单网络管理协议)收集并操作有价值的网络信<br>息。它运行在管理工作站上，定期或随机地轮询网络中的设备，要求它们暴露特定的信息，以收集数<br>。在一切正常的情况下， SNMP 将收到基线 (baseline) 信息 即描述健康网络运行特征的报告<br>协议还可充当网络的看门狗，将任何突发 件迅速告知管理员 这些网络 门狗称为代理，出现异常<br>情况时，代理将向管理工作站发送称为 trap 的警告。</p>
+<h4 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h4><p>安全外壳 (SSH) 协议通过标准 TCPIIP 连接建立安全的 Telnet 会话，用于执行如下操作:登录系<br>统、在远程系统中运行程序以及在系统间传输文件等。它在执行这些操作时都使用健壮的加密连接。<br>你可将其视为用于替代 rsh rlogi Telnet 的新 一代协议</p>
+<h4 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h4><p>HTTPS(Hyp rtext Transfer Protoco1 Secure ，安全超文本传输协议)使用 SSL ( Secure Socket Layer ,<br>安全套接字层)，有时也称为 SHTTP S-HTTP( 这是一个 HTTP 扩展，不使用 SSL )，但这无关紧要。<br>顾名思义，它是安全版盯TP ，提供了一系列安全工具，可确保 Web 浏览器和 Web 服务器之间的通信<br>安全。当你在网上预订或购物时，浏览器需要使用它来填写表格、签名、验证和加密 HTTP 消息。</p>
+<h4 id="NTP"><a href="#NTP" class="headerlink" title="NTP"></a>NTP</h4><p>NTP (Network Time Protoco1 ，网络时间协议)用于将计算机时钟与标准时间源(通常是原子钟)<br>同步，由特拉华大学的 DavidMills 教授开发 NTP 将设备同步，确保给定网络中所有计算机的时间一<br>致。这虽然昕起来非常简单，但却非常重要，因为当今的很多交易都需要指出时间和日期。想想你的<br>数据库吧，如果服务器不与相连的计算机同步，哪怕只相差几秒，也会带来严重的混乱(甚至崩溃)。<br>如果某台机器在凌晨 1:50 发起交易，而服务器将交易时间记录为 1:45 ，交易将无法完成。因此， NTP<br>可避免因”没有 De10rean①就回到未来”而导致网络崩费，这点确实非常重要。</p>
+<h4 id="IGMP"><a href="#IGMP" class="headerlink" title="IGMP"></a>IGMP</h4><p>IGMP (Internet Group Management Protocol ，因特网组管理协议)是一种用于管理 IP 组播会话的<br>TCPIIP 协议，它这样完成其职责:通过网络发送唯一的 IGMP 消息，以揭示组播组信息，并找出主机<br>所属的组播组。 网络中的主机也使用 IGMP 消息来加入和退出组播组。 IGMP 消息非常方便用于跟<br>踪组成员关系以及激活组播流。</p>
+<h4 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h4><p>DNS ( Domain Name Serv肘，域名服务)解析主机名，具体地说是因特网名称，如 <a href="http://www.routersim" target="_blank" rel="noopener">www.routersim</a>.<br>com。你并非一定要使用 DNS ，可只输入要与之通信的设备的 IP 地址。 IP 地址表示网络和因特网中<br>的主机，然而， DNS 旨在让我们的生活更便捷。想想下面这种情形:如果要将网页移到另一家服务提<br>供商，结果将如何呢? IP 地址将改变，但没有人知道新的 IP 地址。 DNS 让你能够使用域名指定 IP<br>址，你可以随时修改 IP 地址，而不会有人感觉到有何不同。<br>DNS 用于解析 FQDN (Fully Qualified Domain Name ，全限定域名)，如 <a href="http://www.lammle.com" target="_blank" rel="noopener">www.lammle.com</a><br>todd.lamm1e.como FQDN 是一种层次结构，可根据域名标识符查找系统。<br>如果要解析名称 todd ，则要么输入 FQDNωdd.l ammle.com ，要么让设备(如 PC 或路由器)帮助<br>你添加后级。例如，在思科路由器中，你可使用命令 ip domain-name lammle.com 给每个请求加上<br>域名 lamrr .com。如果不这样做，则你必须输入 FQDN ，这样 DNS 才能对名称进行解析。</p>
+<h4 id="DHCP-BootP"><a href="#DHCP-BootP" class="headerlink" title="DHCP/BootP"></a>DHCP/BootP</h4><p>DHCP ( Dynamic Host Configuration Protocol ，动态主机配置协议)给主机分配 IP 地址，让管理工<br>作更轻松，非常适合用于各种规模的网络。各种类型的硬件都可用作 DHCP 服务器，包括思科路由器。<br>DHCP BootP (Bootstrap Protocol ，自举协议)的差别在于， BootP 给主机分配田地址，但必须<br>手工将主机的硬件地址输入到 BootP表中。你可将 DHCP 视为动态的 BootP 。但别忘了， BootP也可<br>用于发送操作系统，让主机使用它启动，而 DHCP 没有这样的功能。<br>主机向 DHCP 服务器请求 IP 地址时， DHCP 服务器可将大量信息提供给主机。下面是 DHCP<br>务器可提供的信息列表:<br>IP 地址;<br>日子网掩码:<br>口域名;<br>口默认网关(路由器);<br>DNS 服务器的地址:<br>WINS 服务器的地址。</p>
+<p>DHCP 服务器还可提供其他信息，但上面列出的信息是最常见的。<br>为获得田地址而发送 DHCP 发现消息的主机在第 层和第 层都发送广播:<br>口第 层广播的地址在十六进制表示下全为 ，即 FF:FF:FF:FF:FF:曰:<br>口第 层广播的地址为 255.255.255.255 ，这表示所有网络和所有主机。<br>DHCP 是无连接的，这意味着它在传输层使用 UDP (User Data Pr侃侃。 ，用户数据报协议)，<br>这层也叫主机到主机层，稍后将介绍它。<br>为防止你不相信我，下面是我信任的分析器的输出示例:<br>Ether‘net 11 , Src: 0.0.0.0 (00:Ob:db:99:d3:5e) ,Dst: Broadcast(ff:ff:ff:ff:ff:ff)<br>1nternet Protocol , Src: 0.0.0.0 (O.O.O.O) ,Dst: 255.255.255.255(255.255.255.255)<br>数据链路层和网络层都给”全体成员”发送广播，指出”帮帮我，我不知道自己的 地址”。</p>
+<p>客户端向DHCP服务器请求IP地址</p>
+<p>客户端向 DHCP 服务器请求 IP 地址的 个步骤如下:<br>(1) DHCP 客户端广播一条 DHCP 发现消息，旨在寻找 DHCP 服务器(端口 67 );<br>(2) 收到 DHCP 发现消息的 DHCP 服务器向主机发回一条单播 DHCP 提议消息;<br>(3) 客户端向服务器广播一条 DHCP 请求消息，请求提议的 IP 地址和其他信息:<br>(4) 服务器以单播方式发回一条 DHCP 确认消息，完成交互。</p>
+<h4 id="DHCP-冲突"><a href="#DHCP-冲突" class="headerlink" title="DHCP 冲突"></a>DHCP 冲突</h4><p>两台主机使用相同的 IP 地址时，就发生了 DHCP 地址冲突。这昕起来很糟糕，不是吗?当然糟 -<br>糕!在介绍 IPv6 的那章，根本不需要讨论这个问题。<br>在分配 IP 地址的过程中， DHCP 服务器在分配地址池中的地址前，将使用 ping 程序来测试其可<br>用性。如果没有主机应答， DHCP 服务器将认为该 地址未分配出去。这有助于服务器知道它要分配<br>的地址未被占用，但主机呢?为进一步避免如此糟糕的 地址冲突问题，主机可广播自己的地址。<br>主机使用免费 ARP (gratuitous ARP )来帮助避免地址重复。为此， DHCP 客户端在本地 LAN<br>VLAN 中发送 盯广播，并要求解析分配新给它的地址，从而将冲突消灭在萌芽状态。<br>如果检测到 IP 地址冲突，相应的 IP 地址将从 DHCP 地址池中删除;且在管理员手工解决冲突前，<br>该地址不全被分配给任何主机，牢记这一点很重要。</p>
+<h4 id="TCP（传输控制协议）"><a href="#TCP（传输控制协议）" class="headerlink" title="TCP（传输控制协议）"></a>TCP（传输控制协议）</h4><p>报文格式：</p>
+<p><img src="C:%5CUsers%5CHS%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1565849012144.png" alt="1565849012144"></p>
+<p>TCP 报头长 208 (在包含选项时为 248 )，你必须理解 TCP 数据段中的每个字段。<br>源端口 发送主机的应用程序的端口号(端口 将在本节后面解释)。<br>目标端口 目标主机的应用程序的端口号。<br>序列号 一个编号， TCP 用来将数据按正确的顺序重新排列(称为排序) 重传丢失或受损的<br>数据。</p>
+<p>确认号 TCP 期待接下来收到的数据段。</p>
+<p>报头长度 TCP 报头的长度，以 32 位字为单位。它指出了数据的开始位置， TCP 报头的长度<br>32 位的整数倍，即使包含选项时亦如此。<br>口保留总是设置为零。<br>口编码位/标志用于建立和终止会话的控制功能。<br>口窗口大小 发送方愿意接受的窗口大小，单位为字节。lmI<br>口校验和 CRC (Cyclic Redundancy Check ，循环冗余校验)，由于 TCP 不信任低层，因此检 咽跚跚<br>查所有数据。 CRC 检查报头和数据字段。<br>口紧急 仅当设置了编码位中的紧急指针字段时，该字段才有效。如果设置了紧急指针，该字<br>段表示非紧急数据的开头位置相对于当前序列号的偏移量，单位为字节。<br>口选项 长度为 32 位的整数倍。也就是说，没有选项时，长度为 。然而，如果包含选项<br>时导致该字段的长度不是 32 位的整数倍，必须填充零，以确保该字段的长度为 32 位的整数倍。<br>口数据传递给传输层的 TCP 协议的信息，包括上层报头。</p>
+<h4 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h4><p>报文格式：</p>
+<p><img src="E:%5CTypora%5Cimage%5C1565855798078.png" alt="1565855798078"></p>
+<p>了解 UDP 数据段中的每个字段至关重要，如下。<br>口源端口号发送主机的应用程序的端口号。<br>日目标端口号 目标主机上被请求的应用程序的端口号<br>口长度 UDP 报头和 UDP 数据的总长度。<br>口校验和 UDP 报头和 UDP 数据的校验和。<br>口数据上层数据。</p>
+<p><img src="E:%5CTypora%5Cimage%5C1565855881706.png" alt="1565855881706"></p>
+<h4 id="IP"><a href="#IP" class="headerlink" title="IP"></a>IP</h4><p>报文格式：</p>
+<p><img src="E:%5CTypora%5Cimage%5C1565856514677.png" alt="1565856514677"></p>
+<p>IP 报头如下字段：</p>
+<p>口版本 IP 版本号。<br>口报头长度报头的长度，单位为 32 位字。<br>口优先级和服务类型服务类型指出应如何处理数据报。前 位为优先级位，当前称为区分服<br>务位。<br>口总长度整个分组的长度，包括报头和数据。<br>口标识唯一的 分组值，用于区分不同的数据报。<br>口标志指出是否进行了分段。<br>口分段偏移 在分组太大，无法放入一个帧中时，提供了分段和重组功能。它还使得因特网上<br>可有不同的 MTU (Maximum Transmission Unit ，最大传输单元)。<br>口存活时间 生成分组时给它指定的存活时间。如果分组到达目的地之前 πL 就已到期，分组<br>将被丢弃。这可避免 IP 分组因寻找目的地不断在网络中传输。<br>口协议上层协议的端口 (TCP 为端口 UDP 为端口 7)。还支持网络层协议，如 盯和<br>ICMP (在有些分析器中，该字段称为类型字段)。稍后我们将更详细地讨论该字段。<br>口报头校验和对报头执行 CRC 的结果。<br>口商、 IP 地址发送方的 32 IP 地址。<br>口目标 IP 地址接收方的 32 IP 地址。<br>口选顶用于网络测试、调试、安全等。<br>口数据位于选项字段后，为上层数据。</p>
+<h4 id="ARP"><a href="#ARP" class="headerlink" title="ARP"></a>ARP</h4><p>ARP (Address Resolution Protocol ，地址解析协议)根据已知的IP 地址查找主机的硬件地址<br>工作原理如下:四需要发送数据报时，它必须将目标端的硬件地址告知网络接入层协议，如以太网或<br>无线。(上 层协议已经将目标端的IP 地址告诉它。)如果 IP 在ARP 援存中没有找到目标主机的硬件地<br>址，它将使用 ARP 获悉这种信息。<br>作为 IP的侦探， ARP 这样询问本地网络:发送广播，要求有特定IP 地址的机器使用其硬件地址<br>进行应答。 因此， ARP基本上是将软件(IP) 地址转换为硬件地址 如目标 机的以太网网卡地址<br>然后通过广播获悉该地址在 LAN 中的位置。</p>
+<p><img src="http://ww1.sinaimg.cn/large/0072FDFVgy1g61p6j7ch9j31c00u077r.jpg" alt="img"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/16/OSI参考模型1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-高级距离矢量路由EIGRP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -183,7 +290,7 @@
 <p>负载均衡：</p>
 <p>等价均衡</p>
 <p>非等价均衡：</p>
-<p><img src="/1565920011203.png" alt="1565920011203"></p>
+<p><img src="/img/1565920011203.png" alt="1565920011203"></p>
 <p>反掩码：精确匹配</p>
 <p>反掩码==255.255.255.255–子网掩码</p>
 <p>问题：已经存储在路由本地的拓扑表，即使不能MD5认证，路由表中已经存在路由，所以可以继续进行通信，不受限制。</p>
