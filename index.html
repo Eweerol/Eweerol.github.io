@@ -152,6 +152,83 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-高级距离矢量路由EIGRP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>TCP协议里窗口机制有2种：一种是固定的窗口大小；一种是滑动的窗口。这个窗口大小就是我们一次传输几个数据。对所有数据帧按顺序赋予编号，发送方在发送过程中始终保持着一个发送窗口，只有落在发送窗口内的帧才允许被发送；同时接收方也维持着一个接收窗口，只有落在接收窗口内的帧才允许接收。这样通过调整发送方窗口和接收方窗口的大小可以实现流量控制。</p>
+<p>动态改变窗口大小来调节两台主机间数据传输</p>
+<h3 id="高级距离矢量路由EIGRP"><a href="#高级距离矢量路由EIGRP" class="headerlink" title="高级距离矢量路由EIGRP"></a>高级距离矢量路由EIGRP</h3><p>EIGRP特点：</p>
+<p>距离矢量：管理距离为88</p>
+<p>无环路无类路由；</p>
+<p>在开销相等和不相等的路径上实现负载均衡；</p>
+<p>组播地址：224，0，0，？</p>
+<p>工作原理：</p>
+<p>邻居表</p>
+<p>通过表形成邻居；发送路由更新到拓扑表（逐步更新，触发更新）</p>
+<p>路由表</p>
+<p>当最优路由出现问题时，从本地拓扑表提取次优路由继续发送数据；</p>
+<p>拓扑表</p>
+<p>形成网络拓扑，记录所有路由的路径，并根据表选择最优路由形成路由表；</p>
+<p>选择最优路由原则：</p>
+<p>AD通告距离：下一跳到目的路由的距离</p>
+<p>FD可行距离：本路由到目的路由的距离</p>
+<p>FD值最小的成为最优路由，又称为：successor后继者</p>
+<p><img src="E:%5CTypora%5Cimage%5C1565919244455.png" alt="1565919244455"></p>
+<p>可行后继者（feasible succssor）</p>
+<p><img src="E:%5CTypora%5Cimage%5C1565919217153.png" alt="1565919217153"></p>
+<p>Metric值:</p>
+<p>计算=</p>
+<p>负载均衡：</p>
+<p>等价均衡</p>
+<p>非等价均衡：</p>
+<p><img src="/1565920011203.png" alt="1565920011203"></p>
+<p>反掩码：精确匹配</p>
+<p>反掩码==255.255.255.255–子网掩码</p>
+<p>问题：已经存储在路由本地的拓扑表，即使不能MD5认证，路由表中已经存在路由，所以可以继续进行通信，不受限制。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/16/高级距离矢量路由EIGRP/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
