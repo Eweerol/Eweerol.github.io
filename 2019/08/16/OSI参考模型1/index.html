@@ -25,8 +25,7 @@
 <meta property="og:image" content="e:%5CTypora%5Cimage%5C1565855798078.png">
 <meta property="og:image" content="e:%5CTypora%5Cimage%5C1565855881706.png">
 <meta property="og:image" content="e:%5CTypora%5Cimage%5C1565856514677.png">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/0072FDFVgy1g61p6j7ch9j31c00u077r.jpg">
-<meta property="og:updated_time" content="2019-08-16T10:39:09.338Z">
+<meta property="og:updated_time" content="2019-08-16T15:50:48.545Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
 <meta name="twitter:description" content="OSPF参考模型解决不同厂商之间的计算机不能通信的问题，提出OSI参考模型；  应用层：最靠近用户的一层，为计算机用户提供应用接口，也为用户直接提供网络服务，常见的应用层网络服务协议：HTTP,HTTPS,FTP,POP3,SMTP等 HTTP：80 HTTPS:443                    FTP-data:20/tcp           # ftp,data FTP:21/t">
@@ -230,7 +229,6 @@
 <p>IP 报头如下字段：</p>
 <p>口版本 IP 版本号。<br>口报头长度报头的长度，单位为 32 位字。<br>口优先级和服务类型服务类型指出应如何处理数据报。前 位为优先级位，当前称为区分服<br>务位。<br>口总长度整个分组的长度，包括报头和数据。<br>口标识唯一的 分组值，用于区分不同的数据报。<br>口标志指出是否进行了分段。<br>口分段偏移 在分组太大，无法放入一个帧中时，提供了分段和重组功能。它还使得因特网上<br>可有不同的 MTU (Maximum Transmission Unit ，最大传输单元)。<br>口存活时间 生成分组时给它指定的存活时间。如果分组到达目的地之前 πL 就已到期，分组<br>将被丢弃。这可避免 IP 分组因寻找目的地不断在网络中传输。<br>口协议上层协议的端口 (TCP 为端口 UDP 为端口 7)。还支持网络层协议，如 盯和<br>ICMP (在有些分析器中，该字段称为类型字段)。稍后我们将更详细地讨论该字段。<br>口报头校验和对报头执行 CRC 的结果。<br>口商、 IP 地址发送方的 32 IP 地址。<br>口目标 IP 地址接收方的 32 IP 地址。<br>口选顶用于网络测试、调试、安全等。<br>口数据位于选项字段后，为上层数据。</p>
 <h4 id="ARP"><a href="#ARP" class="headerlink" title="ARP"></a>ARP</h4><p>ARP (Address Resolution Protocol ，地址解析协议)根据已知的IP 地址查找主机的硬件地址<br>工作原理如下:四需要发送数据报时，它必须将目标端的硬件地址告知网络接入层协议，如以太网或<br>无线。(上 层协议已经将目标端的IP 地址告诉它。)如果 IP 在ARP 援存中没有找到目标主机的硬件地<br>址，它将使用 ARP 获悉这种信息。<br>作为 IP的侦探， ARP 这样询问本地网络:发送广播，要求有特定IP 地址的机器使用其硬件地址<br>进行应答。 因此， ARP基本上是将软件(IP) 地址转换为硬件地址 如目标 机的以太网网卡地址<br>然后通过广播获悉该地址在 LAN 中的位置。</p>
-<p><img src="http://ww1.sinaimg.cn/large/0072FDFVgy1g61p6j7ch9j31c00u077r.jpg" alt="img"></p>
 
       
 
@@ -324,9 +322,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/08/16/高级距离矢量路由EIGRP/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
-    <a href="/2019/08/16/高级距离矢量路由EIGRP/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+  
+    <a href="/2019/08/09/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
       <i class="icon-circle-right"></i>
     </a>
   
