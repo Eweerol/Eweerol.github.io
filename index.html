@@ -101,6 +101,48 @@
         
         
         <div class="col-12 col-md-8 m-auto">
+            <a href="/2019/08/19/OSPF路由协议/">
+                <p class="h4 index-header"></p>
+                <div class="index-excerpt">
+                    
+                        <div class="index-text mb-1">OSPF路由协议（开放最短路由协议）rip运行端口？
+eigrp  88  思科私有
+ospf  89  工业标准
+组播地址：224.0.0.5   224.0.0.6
+工作原理邻居表除了普通的hello报文建立邻居关系
+数据库表邻接，发送LSA到邻居的数据库表:链路状态信息，包括路由器接口，以及端口上的运行服务；周期更新，并比较前后的LSA包序列号，相同则拒绝包，否则接收；运行SPF算法，计算最短路径优先路由；
+路由表存储最优路由；
+OSPF分层路由ASBR：接了几个自治系统的路由器称为自治系统边界路由器；
+ABR：区域与区域之间；区域边界路由
+DR:指定路由器
+BDR：备份指定路由器
+The Other其他路由器：区域内的路由器与DR交换路由信息；
+划分区域的优势：​      1、减少路由条目；
+​      2、拓扑发生改变时，只影响本区域的数据库；
+​      3、每隔30s泛数据库信息（周期和触发更新），划分区域后，只在本区域泛洪；
+​      4、网络设计灵活；
+OSPF邻居状态1  一共7种状态：   *down状态
+   *init:形成邻居关系表之后的状态
+  </div>
+                    
+                </div>
+            </a>
+
+            
+                <div>
+                    <i class="iconfont icon-riqi2"></i>&nbsp;2019-08-19
+                    &nbsp;&nbsp;
+                    
+                    
+                </div>
+            
+        </div>
+    </div>
+
+    <div class="row mb-4 mx-auto">
+        
+        
+        <div class="col-12 col-md-8 m-auto">
             <a href="/2019/08/16/高级距离矢量路由EIGRP/">
                 <p class="h4 index-header"></p>
                 <div class="index-excerpt">
