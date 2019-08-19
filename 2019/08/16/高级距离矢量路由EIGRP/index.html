@@ -1,314 +1,106 @@
 <!DOCTYPE html>
+<html lang="zh-CN">
 
 
 
-  
 
 
-<html class="theme-next muse use-motion" lang="en">
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT">
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="高级距离矢量路由EIGRP EIGRP特点· 距离矢量：路由管理距离为90； · 无环路的无类路由：携带子网掩码信息； · 在开销相等和不相等的路径上实现负载均衡； · 用组播地址：224.0.0.10和单播地址代表广播地址； · 支持 VLSM 和不连续的子网 · 在 Internet 网络中的任意点手动汇总 · 支持多种网络层协议 工作原理邻居表 通过每5秒/60秒发送Hello报文形成邻居表">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Eweerol">
-<meta property="og:url" content="https://eweerol.github.io/2019/08/16/高级距离矢量路由EIGRP/index.html">
-<meta property="og:site_name" content="Eweerol">
-<meta property="og:description" content="高级距离矢量路由EIGRP EIGRP特点· 距离矢量：路由管理距离为90； · 无环路的无类路由：携带子网掩码信息； · 在开销相等和不相等的路径上实现负载均衡； · 用组播地址：224.0.0.10和单播地址代表广播地址； · 支持 VLSM 和不连续的子网 · 在 Internet 网络中的任意点手动汇总 · 支持多种网络层协议 工作原理邻居表 通过每5秒/60秒发送Hello报文形成邻居表">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="https://eweerol.github.io/Hexo/blog/public/img/1565949429324.png">
-<meta property="og:image" content="https://eweerol.github.io/Hexo/blog/public/img/0072FDFVgy1g61p45x6lzj30hd09rwhl-1565951445477.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/0072FDFVgy1g61pl6pehfj30ew04m75i.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/0072FDFVgy1g61psci83bj30cw06ydhl.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/0072FDFVgy1g61qdd6i43j30n50b674q.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/0072FDFVgy1g61qdd6i43j30n50b674q.jpg">
-<meta property="og:image" content="file:///C:%5CUsers%5CHS%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image002.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/0072FDFVgy1g61y5onawqj30o004f0ss.jpg">
-<meta property="og:updated_time" content="2019-08-16T15:45:18.278Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Eweerol">
-<meta name="twitter:description" content="高级距离矢量路由EIGRP EIGRP特点· 距离矢量：路由管理距离为90； · 无环路的无类路由：携带子网掩码信息； · 在开销相等和不相等的路径上实现负载均衡； · 用组播地址：224.0.0.10和单播地址代表广播地址； · 支持 VLSM 和不连续的子网 · 在 Internet 网络中的任意点手动汇总 · 支持多种网络层协议 工作原理邻居表 通过每5秒/60秒发送Hello报文形成邻居表">
-<meta name="twitter:image" content="https://eweerol.github.io/Hexo/blog/public/img/1565949429324.png">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="https://eweerol.github.io/2019/08/16/高级距离矢量路由EIGRP/">
-
-
-
-
-
-  <title> | Eweerol</title>
-  
-
-
-
-
-
-
-
-
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content>
+    <meta name="author" content="Eweerol">
+    <meta name="keywords" content>
+    <title>Eweerol</title>
+    <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css?v=5.7.2">
+    <link rel="stylesheet" href="/lib/mdbootstrap/css/bootstrap.min.css?v=4.3.1">
+    <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css?v=4.8.7">
+    <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+    <link rel="stylesheet" href="/lib/nprogress/nprogress.css?v=0.2.0">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+    
+        <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+    
+    <link rel="stylesheet" href="/css/main.css">
+
+    
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
-  
-  
-    
-  
+<body>
+<header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+<div class="container">
+    <a class="navbar-brand" href="/">&nbsp;<strong>Eweerol</strong>&nbsp;</a>
 
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Eweerol</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
-  </div>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto text-center">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/archives/">Archives</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/categories/">Categories</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/tags/">Tags</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
 </div>
 
-<nav class="site-nav">
-  
 
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            Home
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            Archives
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
 </nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://eweerol.github.io/2019/08/16/高级距离矢量路由EIGRP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Eweerol">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/timg.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eweerol">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline"></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-16T23:54:08+08:00">
-                2019-08-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+    <div class="view intro-2"
+         style="background: url('/img/post.jpg')no-repeat center center;background-size: cover;">
+        <div class="full-bg-img">
+            <div class="mask rgba-black-light flex-center">
+                <div class="container text-center white-text wow fadeInUp">
+                    <span class="h2" id="subtitle">
+                        
+                    </span>
+                    
+                        <br>
+                        <p>Friday, August 16th 2019, 11:54 pm</p>
+                    
+                </div>
+            </div>
         </div>
-      </header>
-    
+    </div>
+</header>
 
+<main>
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
+        
 
-      
-      
-
-      
-        <h3 id="高级距离矢量路由EIGRP"><a href="#高级距离矢量路由EIGRP" class="headerlink" title="高级距离矢量路由EIGRP"></a>高级距离矢量路由EIGRP</h3><p><img src="/../../../../../../../../../../Hexo/blog/public/img/1565949429324.png" alt="1565949429324"></p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="d-none d-lg-block col-lg-2"></div>
+            <div class="col-lg-8 nopadding-md">
+                <div class="py-5 z-depth-3 board">
+                    <div class="post-content mx-auto">
+                        <div class="markdown-body">
+                            <h3 id="高级距离矢量路由EIGRP"><a href="#高级距离矢量路由EIGRP" class="headerlink" title="高级距离矢量路由EIGRP"></a>高级距离矢量路由EIGRP</h3><p><img src="/../../../../../../../../../../Hexo/blog/public/img/1565949429324.png" alt="1565949429324"></p>
 <h4 id="EIGRP特点"><a href="#EIGRP特点" class="headerlink" title="EIGRP特点"></a>EIGRP特点</h4><p><strong>·</strong> 距离矢量：路由管理距离为90；</p>
 <p>· 无环路的无类路由：携带子网掩码信息；</p>
 <p>· 在开销相等和不相等的路径上实现负载均衡；</p>
@@ -355,23 +147,39 @@
 <p>dly：延迟之和，路由传递方向所有入接口的dly值的累加</p>
 <h4 id="EIGRP配置"><a href="#EIGRP配置" class="headerlink" title="EIGRP配置"></a>EIGRP配置</h4><p><img src="http://ww1.sinaimg.cn/large/0072FDFVgy1g61qdd6i43j30n50b674q.jpg" alt="/img"></p>
 <p>Router0配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">router eigrp 10</span><br><span class="line"></span><br><span class="line"> variance 15</span><br><span class="line"></span><br><span class="line"> network 11.0.0.0</span><br><span class="line"></span><br><span class="line"> network 12.0.0.0</span><br><span class="line"></span><br><span class="line"> network 13.0.0.0</span><br><span class="line"></span><br><span class="line"> no auto-summary</span><br></pre></td></tr></table></figure>
+<pre><code>router eigrp 10
 
-<p>Router1配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">router eigrp 10</span><br><span class="line"> network 24.0.0.0</span><br><span class="line"> network 12.0.0.0</span><br><span class="line"> no auto-summary</span><br></pre></td></tr></table></figure>
+ variance 15
 
-<p>Router2配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">router eigrp 10</span><br><span class="line"> network 34.0.0.0</span><br><span class="line"> network 13.0.0.0</span><br><span class="line"> no auto-summary</span><br></pre></td></tr></table></figure>
+ network 11.0.0.0
 
-<p>Router3配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">router eigrp 10</span><br><span class="line"> network 24.0.0.0</span><br><span class="line"> network 44.0.0.0</span><br><span class="line"> network 34.0.0.0</span><br><span class="line"> no auto-summary</span><br></pre></td></tr></table></figure>
+ network 12.0.0.0
 
-<p>反掩码：精确匹配</p>
+ network 13.0.0.0
+
+ no auto-summary</code></pre><p>Router1配置：</p>
+<pre><code>router eigrp 10
+ network 24.0.0.0
+ network 12.0.0.0
+ no auto-summary</code></pre><p>Router2配置：</p>
+<pre><code>router eigrp 10
+ network 34.0.0.0
+ network 13.0.0.0
+ no auto-summary</code></pre><p>Router3配置：</p>
+<pre><code>router eigrp 10
+ network 24.0.0.0
+ network 44.0.0.0
+ network 34.0.0.0
+ no auto-summary</code></pre><p>反掩码：精确匹配</p>
 <p>反掩码==255.255.255.255–子网掩码</p>
 <p>11.1.0.0 0.0.0.255    //精确网段</p>
-<h5 id="检验EIGRP配置语句"><a href="#检验EIGRP配置语句" class="headerlink" title="检验EIGRP配置语句"></a>检验EIGRP配置语句</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sh ip route eigrp   //检查路由对应的eigrp配置</span><br><span class="line">sh ip protocols    //检查运行的路由协议</span><br><span class="line">sh ip eigrp interfaces    //查询端口所对应的Eigrp的管理距离以及自治区</span><br><span class="line">sh ip eigrp neighbors     //查询eigrp邻居表</span><br><span class="line">sh ip eigrp topology      //查询eigrp拓扑表</span><br><span class="line">sh ip eigrp traffic       //查询eigrp中发送/接收的各种数据包量</span><br></pre></td></tr></table></figure>
-
-<h4 id="EIGRP负载均衡"><a href="#EIGRP负载均衡" class="headerlink" title="EIGRP负载均衡"></a>EIGRP负载均衡</h4><p><strong>等价均衡</strong></p>
+<h5 id="检验EIGRP配置语句"><a href="#检验EIGRP配置语句" class="headerlink" title="检验EIGRP配置语句"></a>检验EIGRP配置语句</h5><pre><code>sh ip route eigrp   //检查路由对应的eigrp配置
+sh ip protocols    //检查运行的路由协议
+sh ip eigrp interfaces    //查询端口所对应的Eigrp的管理距离以及自治区
+sh ip eigrp neighbors     //查询eigrp邻居表
+sh ip eigrp topology      //查询eigrp拓扑表
+sh ip eigrp traffic       //查询eigrp中发送/接收的各种数据包量
+</code></pre><h4 id="EIGRP负载均衡"><a href="#EIGRP负载均衡" class="headerlink" title="EIGRP负载均衡"></a>EIGRP负载均衡</h4><p><strong>等价均衡</strong></p>
 <p>默认支持4条，不同IOS版本不同</p>
 <p><strong>非等价均衡</strong></p>
 <p>条目数量配置：maximum-paths</p>
@@ -388,9 +196,31 @@
 <p>4.（可选）指定密钥的有效期</p>
 <p>5.在接口上启用MD5身份验证</p>
 <p>6.指定接口使用的密钥链</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Router(config)#key chain Key-chain name     进入密钥链配置模式</span><br><span class="line"></span><br><span class="line">Router(config-keychain)#key key-id       标识密钥并进入密钥ID的配置模式</span><br><span class="line"></span><br><span class="line">Router(config-keychain-key)#key-string text  标识密钥字符串（密码）</span><br><span class="line"></span><br><span class="line">Router(config-keychain-key)#accept-lifetime start-time &#123;infinite | end-time </span><br><span class="line"></span><br><span class="line">| duration seconds&#125;                   (可选)指定何时为收到的数据包接受密钥</span><br><span class="line"></span><br><span class="line">Router(config-keychain-key)#send-lifetime start-time &#123;infinite | end-time </span><br><span class="line"></span><br><span class="line">| duration seconds&#125;                   (可选)指定密钥可时可用于发送数据包</span><br><span class="line"></span><br><span class="line">Router(config-if)#ip authentication mode eigrp autonomous-system md5  </span><br><span class="line"></span><br><span class="line">为EIGRP数据包指定MD5身份验证</span><br><span class="line"></span><br><span class="line">Router(config-if)#ip authentication key-chain eigrp autonomous-system </span><br><span class="line"></span><br><span class="line">name-of-chain</span><br><span class="line"></span><br><span class="line">使用密钥链中的密钥来启用EIGRP数据包的身份验证</span><br></pre></td></tr></table></figure>
+<pre><code>Router(config)#key chain Key-chain name     进入密钥链配置模式
 
-<h4 id="EIGRP实验"><a href="#EIGRP实验" class="headerlink" title="EIGRP实验"></a>EIGRP实验</h4><p><strong>实验目的：PC1 ping PC4 !!!</strong></p>
+Router(config-keychain)#key key-id       标识密钥并进入密钥ID的配置模式
+
+Router(config-keychain-key)#key-string text  标识密钥字符串（密码）
+
+Router(config-keychain-key)#accept-lifetime start-time {infinite | end-time 
+
+| duration seconds}                   (可选)指定何时为收到的数据包接受密钥
+
+Router(config-keychain-key)#send-lifetime start-time {infinite | end-time 
+
+| duration seconds}                   (可选)指定密钥可时可用于发送数据包
+
+Router(config-if)#ip authentication mode eigrp autonomous-system md5  
+
+为EIGRP数据包指定MD5身份验证
+
+Router(config-if)#ip authentication key-chain eigrp autonomous-system 
+
+name-of-chain
+
+使用密钥链中的密钥来启用EIGRP数据包的身份验证
+
+</code></pre><h4 id="EIGRP实验"><a href="#EIGRP实验" class="headerlink" title="EIGRP实验"></a>EIGRP实验</h4><p><strong>实验目的：PC1 ping PC4 !!!</strong></p>
 <p><strong>实验需求：</strong></p>
 <p><strong>1.</strong>  <strong>全网运行动态路由协议EIGRP</strong></p>
 <p><strong>2.</strong>  <strong>做MD5验证</strong></p>
@@ -418,357 +248,103 @@
 <p><img src="http://ww1.sinaimg.cn/large/0072FDFVgy1g61y5onawqj30o004f0ss.jpg" alt="/img"></p>
 <p>问题：已经存储在路由本地的拓扑表，即使不能MD5认证，路由表中已经存在路由，所以可以继续进行通信，不受限制。</p>
 
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
+                            <hr>
+                        </div>
+                        <br>
+                        <div>
+                            
+                            <p>
+                                <i class="iconfont icon-tag"></i>
+                                
+                            </p>
+                            
+                                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="d-none d-lg-block col-lg-2 toc-container">
             
-              <a href="/2019/08/16/OSI参考模型1/" rel="next" title>
-                <i class="fa fa-chevron-left"></i> 
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i> Toc:</p> 
+    <div id="tocbot"></div>
   </div>
 
-
-          </div>
-          
-
-
-          
-
-  
-
-
-
         </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/images/timg.jpg" alt="Eweerol">
-            
-              <p class="site-author-name" itemprop="name">Eweerol</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-
-          </nav>
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#高级距离矢量路由EIGRP"><span class="nav-number">1.</span> <span class="nav-text">高级距离矢量路由EIGRP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#EIGRP特点"><span class="nav-number">1.1.</span> <span class="nav-text">EIGRP特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工作原理"><span class="nav-number">1.2.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择最优路由原则"><span class="nav-number">1.3.</span> <span class="nav-text">选择最优路由原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后继者和可行后继者"><span class="nav-number">1.4.</span> <span class="nav-text">后继者和可行后继者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EIGRP度量值计算"><span class="nav-number">1.5.</span> <span class="nav-text">EIGRP度量值计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Metric值计算"><span class="nav-number">1.6.</span> <span class="nav-text">Metric值计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EIGRP配置"><span class="nav-number">1.7.</span> <span class="nav-text">EIGRP配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#检验EIGRP配置语句"><span class="nav-number">1.7.1.</span> <span class="nav-text">检验EIGRP配置语句</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EIGRP负载均衡"><span class="nav-number">1.8.</span> <span class="nav-text">EIGRP负载均衡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EIGRP-MD5身份验证"><span class="nav-number">1.9.</span> <span class="nav-text">EIGRP MD5身份验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EIGRP实验"><span class="nav-number">1.10.</span> <span class="nav-text">EIGRP实验</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Eweerol</span>
-
-  
 </div>
 
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
+<!-- custom -->
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
-
-
-
-
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container comments mx-auto" id="comments">
         
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
+    </div>
+</div>
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
+</main>
 
+<footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/0x2e/Material-T" target="_blank" rel="nofollow noopener"> <b>Material-T</b></a>
+    <br>
     
-
   </div>
+</footer>
 
+  <!-- SCRIPTS -->
+  <script src="/lib/mdbootstrap/js/jquery-3.4.1.min.js"></script>
+  <script src="/lib/mdbootstrap/js/popper.min.js"></script>
+  <script src="/lib/mdbootstrap/js/bootstrap.min.js?v=4.3.1"></script>
+  <script src="/lib/mdbootstrap/js/mdb.min.js?v=4.8.7"></script>
+  <script src="/lib/nprogress/nprogress.min.js?v=0.2.0"></script>
+  <script src="/js/main.js"></script>
   
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
+    
+      <script src="/lib/tocbot/tocbot.min.js?v=4.7.0"></script>
+    
+    <script src="/js/post.js"></script>
   
   
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
+    <script src="/lib/prettify/prettify.min.js?v=0.1.0"></script>
+    <script>
+      $(document).ready(function(){
+        $('pre').addClass('prettyprint linenums');
+        prettyPrint();
+      })
+    </script>
   
   
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
+    <script src="/lib/typed/typed.min.js?v=2.0.9"></script>
+    <script>
+        var typed = new Typed('#subtitle', {
+          strings: [
+            '  ',
+            "&nbsp;",
+        ],
+        cursorChar: "_",
+        typeSpeed: 70,
+        startDelay: 300, //开始之前延迟300毫秒
+        loop: false,
+        });
+        $(".typed-cursor").addClass("h2");
+    </script>
   
   
-
+    <script src="/lib/anchor/anchor.min.js?v=4.2.0"></script>
+    <script>
+      anchors.options = {
+        placement: "right",
+        visible: "false",
+        
+      };
+      anchors.add(".post-content > h1,h2,h3,h4,h5,h6");
+    </script>
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
 </body>
 </html>
