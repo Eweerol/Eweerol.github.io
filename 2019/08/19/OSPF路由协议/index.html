@@ -100,14 +100,16 @@
                 <div class="py-5 z-depth-3 board">
                     <div class="post-content mx-auto">
                         <div class="markdown-body">
-                            <h2 id="OSPF路由协议（开放最短路由协议）"><a href="#OSPF路由协议（开放最短路由协议）" class="headerlink" title="OSPF路由协议（开放最短路由协议）"></a>OSPF路由协议（开放最短路由协议）</h2><p>rip运行端口？</p>
+                            <h2 id="OSPF路由协议（开放最短路由协议）"><a href="#OSPF路由协议（开放最短路由协议）" class="headerlink" title="OSPF路由协议（开放最短路由协议）"></a>OSPF路由协议（开放最短路由协议）</h2><p>rip  520</p>
 <p>eigrp  88  思科私有</p>
 <p>ospf  89  工业标准</p>
 <p>组播地址：224.0.0.5   224.0.0.6</p>
 <h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><h4 id="邻居表"><a href="#邻居表" class="headerlink" title="邻居表"></a>邻居表</h4><p>除了普通的hello报文建立邻居关系</p>
 <h4 id="数据库表"><a href="#数据库表" class="headerlink" title="数据库表"></a>数据库表</h4><p>邻接，发送LSA到邻居的数据库表:链路状态信息，包括路由器接口，以及端口上的运行服务；周期更新，并比较前后的LSA包序列号，相同则拒绝包，否则接收；运行SPF算法，计算最短路径优先路由；</p>
 <h4 id="路由表"><a href="#路由表" class="headerlink" title="路由表"></a>路由表</h4><p>存储最优路由；</p>
-<h3 id="OSPF分层路由"><a href="#OSPF分层路由" class="headerlink" title="OSPF分层路由"></a>OSPF分层路由</h3><p>ASBR：接了几个自治系统的路由器称为自治系统边界路由器；</p>
+<h3 id="OSPF分层路由"><a href="#OSPF分层路由" class="headerlink" title="OSPF分层路由"></a>OSPF分层路由</h3><p><img src="http://ww1.sinaimg.cn/large/0072FDFVgy1g6597lbmvyj30lv07vn1y.jpg" alt="/img"></p>
+<p><img src="../../../../Grade3-4/Study_process/%E7%BD%91%E5%AE%8919%E7%8F%AD/Typora" alt="/img">)</p>
+<p>ASBR：接了几个自治系统的路由器称为自治系统边界路由器；</p>
 <p>ABR：区域与区域之间；区域边界路由</p>
 <p>DR:指定路由器</p>
 <p>BDR：备份指定路由器</p>
