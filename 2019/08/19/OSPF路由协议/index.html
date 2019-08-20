@@ -104,7 +104,7 @@
 <p>eigrp  88  思科私有</p>
 <p>ospf  89  工业标准</p>
 <p>组播地址：224.0.0.5   224.0.0.6</p>
-<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><h4 id="邻居表"><a href="#邻居表" class="headerlink" title="邻居表"></a>邻居表</h4><p>除了普通的hello报文建立邻居关系</p>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><h4 id="邻居表"><a href="#邻居表" class="headerlink" title="邻居表"></a>邻居表</h4><p>普通的hello报文建立邻居关系</p>
 <h4 id="数据库表"><a href="#数据库表" class="headerlink" title="数据库表"></a>数据库表</h4><p>邻接，发送LSA到邻居的数据库表:链路状态信息，包括路由器接口，以及端口上的运行服务；周期更新，并比较前后的LSA包序列号，相同则拒绝包，否则接收；运行SPF算法，计算最短路径优先路由；</p>
 <h4 id="路由表"><a href="#路由表" class="headerlink" title="路由表"></a>路由表</h4><p>存储最优路由；</p>
 <h3 id="OSPF分层路由"><a href="#OSPF分层路由" class="headerlink" title="OSPF分层路由"></a>OSPF分层路由</h3><p><img src="http://ww1.sinaimg.cn/large/0072FDFVgy1g6597lbmvyj30lv07vn1y.jpg" alt="/img"></p>
@@ -120,11 +120,26 @@
 <p>​      4、网络设计灵活；</p>
 <h3 id="OSPF邻居状态"><a href="#OSPF邻居状态" class="headerlink" title="OSPF邻居状态"></a>OSPF邻居状态</h3><h5 id="1-一共7种状态："><a href="#1-一共7种状态：" class="headerlink" title="1  一共7种状态："></a>1  一共7种状态：</h5><p>   <code>*</code>down状态</p>
 <p>   <code>*</code>init:形成邻居关系表之后的状态</p>
-<p>   <code>*</code>2way:</p>
-<p>   <code>*</code>Exstart:</p>
+<p>   <code>*</code>2way:所有路由表都建立了双向关系；</p>
+<p>   <code>*</code>Exstart:选举DR,BDR完成后；</p>
+<p>Exchange:交换链路状态数据库摘要，</p>
+<p>​      loding  ：  DBD交换完成后；</p>
 <p>   ·········</p>
-<h5 id="2-DR-BDR选取"><a href="#2-DR-BDR选取" class="headerlink" title="2  DR/BDR选取"></a>2  DR/BDR选取</h5><p>重选：</p>
-<h5 id="3-SPF算法"><a href="#3-SPF算法" class="headerlink" title="3  SPF算法"></a>3  SPF算法</h5><h3 id="OSPF等价负载均衡"><a href="#OSPF等价负载均衡" class="headerlink" title="OSPF等价负载均衡"></a>OSPF等价负载均衡</h3><h3 id="OSPF身份验证"><a href="#OSPF身份验证" class="headerlink" title="OSPF身份验证"></a>OSPF身份验证</h3><h5 id="基于虚链路"><a href="#基于虚链路" class="headerlink" title="基于虚链路"></a>基于虚链路</h5><h5 id="基于端口"><a href="#基于端口" class="headerlink" title="基于端口"></a>基于端口</h5><h5 id="基于区域"><a href="#基于区域" class="headerlink" title="基于区域"></a>基于区域</h5><p>开启区域认证的路由器才可以接收OSPF路由信息；</p>
+<h5 id="2-DR-BDR选取"><a href="#2-DR-BDR选取" class="headerlink" title="2  DR/BDR选取"></a>2  DR/BDR选取</h5><p>第一：时间要素；</p>
+<p>其次：接口优先级（多路访问网络接口的优先级为1，点到点网络接口优先级为0.）</p>
+<p>再其次为路由器ID，先比环回接口，再比物理接口；</p>
+<p>路由器ID：</p>
+<p>1、所有loopback接口上最大的IP地址；</p>
+<p>2、否则选取所有活动的物理口IP最大的；</p>
+<p><strong>有以下情况，可重新选取：</strong></p>
+<p> 重启ospf进程或路由器；</p>
+<p>参与的路由器都执行clear ip ospf process命令；</p>
+<p>DR故障；</p>
+<p>OSPF接口优先级为0；</p>
+<h5 id="3-SPF算法"><a href="#3-SPF算法" class="headerlink" title="3  SPF算法"></a>3  SPF算法</h5><p>SPF算法是<a href="https://www.baidu.com/s?wd=OSPF路由协议&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">OSPF路由协议</a>的基础。SPF算法有时也被称为Dijkstra算法，这是因为<a href="https://www.baidu.com/s?wd=最短路径&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">最短路径</a>优先算法SPF是Dijkstra发明的。SPF算法将每一个路由器作为根（ROOT）来计算其到每一个目的地路由器的距离，每一个路由器根据一个统一的数据库会计算出路由域的拓扑结构图，该结构图类似于一棵树，在SPF算法中，被称为<a href="https://www.baidu.com/s?wd=最短路径&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">最短路径</a>树。在<a href="https://www.baidu.com/s?wd=OSPF路由协议&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">OSPF路由协议</a>中，<a href="https://www.baidu.com/s?wd=最短路径&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">最短路径</a>树的树干长度，即OSPF路由器至每一个目的地路由器的距离，称为OSPF的Cost，</p>
+<p>其算法为：Cost = 100×106/链路带宽</p>
+<p>在这里，链路带宽以bps来表示。也就是说，OSPF的Cost 与链路的带宽成反比，带宽越高，Cost越小，表示OSPF到目的地的距离越近。举例来说，FDDI或快速以太网的Cost为1，2M串行链路的Cost为48，10M以太网的Cost为10等。</p>
+<h3 id="OSPF等价负载均衡"><a href="#OSPF等价负载均衡" class="headerlink" title="OSPF等价负载均衡"></a>OSPF等价负载均衡</h3><h3 id="OSPF身份验证"><a href="#OSPF身份验证" class="headerlink" title="OSPF身份验证"></a>OSPF身份验证</h3><h5 id="基于虚链路"><a href="#基于虚链路" class="headerlink" title="基于虚链路"></a>基于虚链路</h5><h5 id="基于端口"><a href="#基于端口" class="headerlink" title="基于端口"></a>基于端口</h5><h5 id="基于区域"><a href="#基于区域" class="headerlink" title="基于区域"></a>基于区域</h5><p>开启区域认证的路由器才可以接收OSPF路由信息；</p>
 <h6 id="配置步骤："><a href="#配置步骤：" class="headerlink" title="配置步骤："></a>配置步骤：</h6><h5 id="OSPF手动汇总"><a href="#OSPF手动汇总" class="headerlink" title="OSPF手动汇总"></a>OSPF手动汇总</h5><p>1、区域间路由一定要在ABR上汇总；</p>
 <p>2、外部自治系统之间在ASBR上；</p>
 
