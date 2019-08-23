@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content>
+    <meta name="author" content="Eweerol">
+    <meta name="keywords" content>
+    <title>网络安全架构之防火墙 ~Eweerol</title>
+    <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css?v=5.7.2">
+    <link rel="stylesheet" href="/lib/mdbootstrap/css/bootstrap.min.css?v=4.3.1">
+    <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css?v=4.8.7">
+    <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+    <link rel="stylesheet" href="/lib/nprogress/nprogress.css?v=0.2.0">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+    
+        <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+    
+    <link rel="stylesheet" href="/css/main.css">
+
+    
+</head>
+
+
+<body>
+<header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+<div class="container">
+    <a class="navbar-brand" href="/">&nbsp;<strong>Eweerol</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto text-center">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/archives/">Archives</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/categories/">Categories</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/tags/">Tags</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+</nav>
+    <div class="view intro-2"
+         style="background: url('/img/post.jpg')no-repeat center center;background-size: cover;">
+        <div class="full-bg-img">
+            <div class="mask rgba-black-light flex-center">
+                <div class="container text-center white-text wow fadeInUp">
+                    <span class="h2" id="subtitle">
+                        
+                    </span>
+                    
+                        <br>
+                        <p>Thursday, August 22nd 2019, 12:00 am</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    
+        
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="d-none d-lg-block col-lg-2"></div>
+            <div class="col-lg-8 nopadding-md">
+                <div class="py-5 z-depth-3 board">
+                    <div class="post-content mx-auto">
+                        <div class="markdown-body">
+                            <h2 id="一-防火墙"><a href="#一-防火墙" class="headerlink" title="一  防火墙"></a>一  防火墙</h2><h3 id="1、防火墙的作用、功能"><a href="#1、防火墙的作用、功能" class="headerlink" title="1、防火墙的作用、功能"></a>1、防火墙的作用、功能</h3><h3 id="2、防火墙的分类"><a href="#2、防火墙的分类" class="headerlink" title="2、防火墙的分类"></a>2、防火墙的分类</h3><p><code>*</code><strong>按防火墙形态：</strong></p>
+<p>​        硬件防火墙；</p>
+<p>​        软件防火墙；</p>
+<h5 id="按技术实现："><a href="#按技术实现：" class="headerlink" title="*按技术实现："></a><code>*</code>按技术实现：</h5><p>​       包过滤；</p>
+<p>​       代理；</p>
+<h5 id="按体系结构分："><a href="#按体系结构分：" class="headerlink" title="*按体系结构分："></a><code>*</code>按体系结构分：</h5><p>​        双宿/多宿主机防火墙；</p>
+<p>​        屏蔽主机防火墙；</p>
+<p>​        屏蔽子网防火墙；</p>
+<p><code>*</code>其他分类方法</p>
+<h3 id="3、防火墙主要技术原理"><a href="#3、防火墙主要技术原理" class="headerlink" title="3、防火墙主要技术原理"></a>3、防火墙主要技术原理</h3><h4 id="3-1包过滤"><a href="#3-1包过滤" class="headerlink" title="3.1包过滤"></a>3.1包过滤</h4><p><strong>实现机制</strong>：依据数据包的基本标记来控制数据包</p>
+<p>​    网络层地址：IP地址（源地址及目的地址）</p>
+<p>​    传输层地址：端口（源端口及目的端口）</p>
+<p>​    协议：协议类型</p>
+<p><strong>实现位置：</strong></p>
+<p>防火墙在数据包进入系统之前处理它，实现包过滤技术的防火墙模块要在协议栈的网络层。</p>
+<p><strong>优点</strong>:<br>只对数据包的 IP 地址、 TCP/UDP 协议和端口进行分析，规则简单，处理速度较快<br>易于配置<br>对用户透明，用户访问时不需要提供额外的密码或使用特殊的命令</p>
+<p><strong>缺点</strong>：<br>检查和过滤器只在网络层，不能识别应用层协议或维持连接状态<br>安全性薄弱，不能防止IP欺骗等</p>
+<h4 id="3-2-代理网关"><a href="#3-2-代理网关" class="headerlink" title="3.2 代理网关"></a>3.2 代理网关</h4><p>​     每个内外网络之间的连接都要通过防火墙的介入和转换，加强了控制；</p>
+<p><img src="http://ww1.sinaimg.cn/large/0072FDFVgy1g68dw8jm16j30hd05hmx6.jpg" alt="/img"></p>
+<h5 id="3-2-1-电路级代理"><a href="#3-2-1-电路级代理" class="headerlink" title="3.2.1 电路级代理"></a>3.2.1 电路级代理</h5><h6 id="实现机制："><a href="#实现机制：" class="headerlink" title="实现机制："></a>实现机制：</h6><p>​    建立回路，对数据包进行转发；</p>
+<h6 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h6><p>能提供NAT，为内部地址管理提供灵活性，隐藏内部网络等<br>适用面广</p>
+<h6 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h6><p> 仅简单的在两个连接间转发数据，不能识别数据包的内容</p>
+<h5 id="3-2-2-应用代理"><a href="#3-2-2-应用代理" class="headerlink" title="3.2.2 应用代理"></a>3.2.2 应用代理</h5><h6 id="实现机制：-1"><a href="#实现机制：-1" class="headerlink" title="实现机制："></a>实现机制：</h6><p>工作在应用层<br>使用代理技术，对应用层数据包进行检查<br>对应用或内容进行过滤，例如：禁止FTP的 “put”命令</p>
+<h3 id="4、防火墙典型部署方式"><a href="#4、防火墙典型部署方式" class="headerlink" title="4、防火墙典型部署方式"></a>4、防火墙典型部署方式</h3><h3 id="5、防火墙的局限性"><a href="#5、防火墙的局限性" class="headerlink" title="5、防火墙的局限性"></a>5、防火墙的局限性</h3><p>路由模式防火墙配置：</p>
+<p><a href="http://ww1.sinaimg.cn/large/0072FDFVgy1g68h7lv287j313m0jvah3.jpg" target="_blank" rel="noopener">http://ww1.sinaimg.cn/large/0072FDFVgy1g68h7lv287j313m0jvah3.jpg</a></p>
+<pre><code>
+</code></pre><h5 id="透明模式防火墙配置——静态路由："><a href="#透明模式防火墙配置——静态路由：" class="headerlink" title="透明模式防火墙配置——静态路由："></a>透明模式防火墙配置——静态路由：</h5><p><img src="http://ww1.sinaimg.cn/large/0072FDFVgy1g69bgub9g9j30qi08h3yp.jpg" alt="/img"></p>
+<pre><code>R2配置：
+
+!
+interface Ethernet0/0
+ ip address 192.168.1.1 255.255.255.0
+ half-duplex
+!
+interface Ethernet0/1
+ ip address 10.0.0.2 255.255.255.248
+ half-duplex
+!
+
+ip route 0.0.0.0 0.0.0.0 10.0.0.1
+ip route 61.1.1.0 255.255.255.0 10.0.0.1
+</code></pre><pre><code>PIX3防火墙配置**：
+
+firewall transparent
+hostname pixfirewall
+
+access-list 101 extended permit icmp any any//允许icmp流量通过
+
+access-group 101 in interface outside//应用到接口
+access-group 101 in interface inside
+
+!
+interface Ethernet0
+ nameif outside
+ security-level 0
+!
+interface Ethernet1
+ nameif inside
+ security-level 100
+!
+
+ip address 10.0.0.3 255.255.255.248  //配置管理地址</code></pre><pre><code>R3配置**
+
+interface Loopback0
+ ip address 61.1.1.1 255.255.255.0
+!
+interface Ethernet0/0
+ ip address 10.0.0.1 255.255.255.248
+ half-duplex
+!
+
+ ！
+ ip route 192.168.1.0 255.255.255.0 10.0.0.2
+
+
+</code></pre><h5 id="透明模式防火墙配置——OSPF模式："><a href="#透明模式防火墙配置——OSPF模式：" class="headerlink" title="透明模式防火墙配置——OSPF模式："></a>透明模式防火墙配置——OSPF模式：</h5><p><img src="http://ww1.sinaimg.cn/large/0072FDFVgy1g69bgub9g9j30qi08h3yp.jpg" alt="/img"></p>
+<pre><code>R2配置：
+
+!
+interface Ethernet0/0
+ ip address 192.168.1.1 255.255.255.0
+ half-duplex
+!
+interface Ethernet0/1
+ ip address 10.0.0.2 255.255.255.248
+ half-duplex
+!
+
+!
+router ospf 1
+ log-adjacency-changes
+ network 10.0.0.0 0.0.0.7 area 0
+ network 192.168.1.0 0.0.0.255 area 0
+!
+
+</code></pre><pre><code>PIX3配置：
+
+PIX Version 7.2(1)
+!
+firewall transparent
+hostname pixfirewall
+enable password 8Ry2YjIyt7RRXU24 encrypted
+names
+!
+interface Ethernet0
+ nameif outside      //取名为outside
+ security-level 0
+!
+interface Ethernet1
+ nameif inside     //取名为inside，设置安全级别为100
+ security-level 100
+!
+
+access-list 101 extended permit ospf any any   //允许OSPF流量通过
+access-list 101 extended permit icmp any any   //允许ICMP流量通过
+
+ip address 10.0.0.3 255.255
+
+access-group 101 in interface outside   //应用到接口
+access-group 101 in interface inside
+</code></pre><pre><code>R3配置：
+
+!
+interface Loopback0
+ ip address 61.1.1.1 255.255.255.0
+!
+interface Ethernet0/0
+ ip address 10.0.0.1 255.255.255.248
+ half-duplex
+!
+!
+router ospf 1
+ log-adjacency-changes
+ network 10.0.0.1 0.0.0.0 area 0
+ network 61.1.1.0 0.0.0.255 area 0
+!
+
+</code></pre>
+                            <hr>
+                        </div>
+                        <br>
+                        <div>
+                            
+                            <p>
+                                <i class="iconfont icon-tag"></i>
+                                
+                            </p>
+                            
+                                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="d-none d-lg-block col-lg-2 toc-container">
+            
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i> Toc:</p> 
+    <div id="tocbot"></div>
+  </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container comments mx-auto" id="comments">
+        
+    </div>
+</div>
+    
+</main>
+
+<footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/0x2e/Material-T" target="_blank" rel="nofollow noopener"> <b>Material-T</b></a>
+    <br>
+    
+  </div>
+</footer>
+
+  <!-- SCRIPTS -->
+  <script src="/lib/mdbootstrap/js/jquery-3.4.1.min.js"></script>
+  <script src="/lib/mdbootstrap/js/popper.min.js"></script>
+  <script src="/lib/mdbootstrap/js/bootstrap.min.js?v=4.3.1"></script>
+  <script src="/lib/mdbootstrap/js/mdb.min.js?v=4.8.7"></script>
+  <script src="/lib/nprogress/nprogress.min.js?v=0.2.0"></script>
+  <script src="/js/main.js"></script>
+  
+    
+      <script src="/lib/tocbot/tocbot.min.js?v=4.7.0"></script>
+    
+    <script src="/js/post.js"></script>
+  
+  
+    <script src="/lib/prettify/prettify.min.js?v=0.1.0"></script>
+    <script>
+      $(document).ready(function(){
+        $('pre').addClass('prettyprint linenums');
+        prettyPrint();
+      })
+    </script>
+  
+  
+    <script src="/lib/typed/typed.min.js?v=2.0.9"></script>
+    <script>
+        var typed = new Typed('#subtitle', {
+          strings: [
+            '  ',
+            "网络安全架构之防火墙&nbsp;",
+        ],
+        cursorChar: "_",
+        typeSpeed: 70,
+        startDelay: 300, //开始之前延迟300毫秒
+        loop: false,
+        });
+        $(".typed-cursor").addClass("h2");
+    </script>
+  
+  
+    <script src="/lib/anchor/anchor.min.js?v=4.2.0"></script>
+    <script>
+      anchors.options = {
+        placement: "right",
+        visible: "false",
+        
+      };
+      anchors.add(".post-content > h1,h2,h3,h4,h5,h6");
+    </script>
+  
+</body>
+</html>
