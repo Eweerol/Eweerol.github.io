@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content>
+    <meta name="author" content="Eweerol">
+    <meta name="keywords" content>
+    <title>GRE-VPN ~Eweerol</title>
+    <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css?v=5.7.2">
+    <link rel="stylesheet" href="/lib/mdbootstrap/css/bootstrap.min.css?v=4.3.1">
+    <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css?v=4.8.7">
+    <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+    <link rel="stylesheet" href="/lib/nprogress/nprogress.css?v=0.2.0">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+    
+        <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+    
+    <link rel="stylesheet" href="/css/main.css">
+
+    
+</head>
+
+
+<body>
+<header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+<div class="container">
+    <a class="navbar-brand" href="/">&nbsp;<strong>Eweerol</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto text-center">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/archives/">Archives</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/categories/">Categories</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/tags/">Tags</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+</nav>
+    <div class="view intro-2"
+         style="background: url('/img/post.jpg')no-repeat center center;background-size: cover;">
+        <div class="full-bg-img">
+            <div class="mask rgba-black-light flex-center">
+                <div class="container text-center white-text wow fadeInUp">
+                    <span class="h2" id="subtitle">
+                        
+                    </span>
+                    
+                        <br>
+                        <p>Friday, August 23rd 2019, 12:00 am</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    
+        
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="d-none d-lg-block col-lg-2"></div>
+            <div class="col-lg-8 nopadding-md">
+                <div class="py-5 z-depth-3 board">
+                    <div class="post-content mx-auto">
+                        <div class="markdown-body">
+                            <p>L2TP VPN  总公司，分公司之间</p>
+<p>PPTP VPN    基于个人，通过拨号VPN 账户密码认证进入远程内部网络</p>
+<p>IPSec VPN  安全性非常高；</p>
+<p>GREVPN  通用路由封装协议：</p>
+<p>保证链路安全；</p>
+<p>实现隧道功能，建立直接连接；</p>
+<p>GRE在实现隧道时，需要创建虚拟直连链路，GRE实现的虚拟直连链路可以认为是隧道，隧道是模拟链路，所以隧道两端也有IP地址，但隧道需要在公网中找到起点和终点，所以隧道的源和终点分别都以公网IP地址结尾，该链路是通过GRE协议来完成的，隧道传递数据包的过程分为3步：<br>1．接收原始IP数据包当作乘客协议，原始IP数据包包头的IP地址为私有IP地址。<br>2．将原始IP数据包封装进GRE协议，GRE协议称为封装协议（Encapsulation Protocol），封装的包头IP地址为虚拟直连链路两端的IP地址。<br>3．将整个GRE数据包当作数据，在外层封装公网IP包头，也就是隧道的起源和终点，从而路由到隧道终点。</p>
+<p>GRE隧道中传输的数据包格式如下：</p>
+<p><img src="http://ww1.sinaimg.cn/large/0072FDFVgy1g69dyzh2rpj30lj0ax40i.jpg" alt="/img"></p>
+<p>IBGP  内部边界网关协议</p>
+<p>——OSPF    EIGRP RIP</p>
+<p>BGP：</p>
+<p>——IBGP</p>
+<p>技术实现：EGP分为以下两个协议：</p>
+<p>IBGP协议：再广域网中有一个地区使用的内部连接</p>
+<p>EBGP协议：广域网中不同地区或者不同厂商之间连接使用</p>
+<p>ISP网络？？？？</p>
+<p><img src="http://ww1.sinaimg.cn/large/0072FDFVgy1g69fpkqdsaj30rs0cddg6.jpg" alt="/img"></p>
+<p>BJ配置：</p>
+<pre><code>!
+interface Tunnel1
+ ip address 10.0.0.1 255.255.255.248
+ tunnel source 24.1.1.1
+ tunnel destination 181.1.1.2
+!
+interface Ethernet0/0
+ ip address 24.1.1.1 255.255.255.0
+ half-duplex
+!
+interface Ethernet0/1
+ ip address 192.168.1.1 255.255.255.0
+ half-duplex
+!
+!
+router ospf 1
+ log-adjacency-changes
+ network 24.1.1.0 0.0.0.255 area 0
+!
+no ip http server
+no ip http secure-server
+!
+ip route 172.1.1.0 255.255.255.0 10.0.0.2
+!
+
+</code></pre><p>R2配置：</p>
+<pre><code>!
+interface Ethernet0/0
+ ip address 24.1.1.2 255.255.255.0
+ half-duplex
+!
+interface Ethernet0/1
+ ip address 181.1.1.1 255.255.255.0
+ half-duplex
+!
+!
+router ospf 1
+ log-adjacency-changes
+ network 24.1.1.0 0.0.0.255 area 0
+ network 181.1.1.0 0.0.0.255 area 0
+!
+</code></pre><p>GZ配置：</p>
+<pre><code>!
+interface Tunnel1
+ ip address 10.0.0.2 255.255.255.248
+ tunnel source 181.1.1.2
+ tunnel destination 24.1.1.1
+!
+interface Ethernet0/0
+ ip address 181.1.1.2 255.255.255.0
+ half-duplex
+!
+interface Ethernet0/1
+ ip address 172.1.1.2 255.255.255.0
+ half-duplex
+
+!
+router ospf 1
+ log-adjacency-changes
+ network 181.1.1.0 0.0.0.255 area 0
+!
+no ip http server
+no ip http secure-server
+!
+ip route 192.168.1.0 255.255.255.0 10.0.0.1
+!
+
+</code></pre><p>测试结果：</p>
+<p><img src="http://ww1.sinaimg.cn/large/0072FDFVgy1g69fx252ktj30dg08174i.jpg" alt="/img"></p>
+<h4 id="PPTPVPN"><a href="#PPTPVPN" class="headerlink" title="PPTPVPN"></a>PPTPVPN</h4><h4 id="PPTPVPN配置"><a href="#PPTPVPN配置" class="headerlink" title="PPTPVPN配置"></a>PPTPVPN配置</h4><h4 id="实际拓扑图："><a href="#实际拓扑图：" class="headerlink" title="实际拓扑图："></a>实际拓扑图：</h4><p>  情景需求：当员工在外地，却需要访问公司内网的时候，可以采用PPTP协议的VPN连接，保证了链路安全，但是由于pap账户密码模式明文传输，不能保证数据安全；</p>
+<p><img src="http://ww1.sinaimg.cn/large/0072FDFVgy1g69km3y5ysj30u30eht97.jpg" alt="/img"></p>
+<p>WD：模拟员工在外地的网络路由：</p>
+<pre><code>!
+interface Ethernet0/0
+ ip address 61.1.1.1 255.255.255.0
+ half-duplex
+!
+interface Ethernet0/1
+ ip address 192.168.1.1 255.255.255.0
+ half-duplex
+!
+!
+router eigrp 1
+ network 61.1.1.0 0.0.0.255
+ network 192.168.1.0
+ auto-summary
+!
+</code></pre><p>Internet：模拟因特网</p>
+<pre><code>!
+interface Ethernet0/0
+ ip address 61.1.1.2 255.255.255.0
+ half-duplex
+!
+interface Ethernet0/1
+ ip address 181.1.1.1 255.255.255.0
+ half-duplex
+!
+!
+router eigrp 1
+ network 61.1.1.0 0.0.0.255
+ network 181.1.1.0 0.0.0.255
+ auto-summary
+!
+</code></pre><p>GS：模拟公司边界网关路由：</p>
+<pre><code>!
+interface Ethernet0/0
+ ip address 181.1.1.2 255.255.255.0
+ half-duplex
+!
+interface Ethernet0/1
+ ip address 172.16.1.1 255.255.255.0
+ half-duplex
+!
+!
+interface Virtual-Template1
+ ip unnumbered Ethernet0/1
+ peer default ip address pool vpn
+ ppp authentication pap
+!
+router eigrp 1
+ network 181.1.1.0 0.0.0.255
+ auto-summary
+!
+ip local pool vpn 172.16.1.10 172.16.1.100
+no ip http server
+no ip http secure-server
+!
+</code></pre><h5 id="测试结果："><a href="#测试结果：" class="headerlink" title="测试结果："></a>测试结果：</h5><p>#### </p>
+<p><img src="http://ww1.sinaimg.cn/large/0072FDFVgy1g69jdnxj7hj30di0etq3m.jpg" alt="/img"></p>
+<p><img src="http://ww1.sinaimg.cn/large/0072FDFVgy1g69jme6sebj30l105kdfq.jpg" alt="/img"></p>
+<h5 id="命令截图："><a href="#命令截图：" class="headerlink" title="命令截图："></a>命令截图：</h5><p>WD命令配置：</p>
+<p><img src="http://ww1.sinaimg.cn/large/0072FDFVgy1g69l5vsx8oj30bh06ata5.jpg" alt="/img"></p>
+<p>Internet命令配置：</p>
+<p><img src="http://ww1.sinaimg.cn/large/0072FDFVgy1g69l6q5obmj30bh05mjr8.jpg" alt="/img"></p>
+<p>GS命令配置：</p>
+<p><img src="http://ww1.sinaimg.cn/large/0072FDFVgy1g69l8nbff6j30fr0be74e.jpg" alt="/img"></p>
+<p>转载「alone_map」<br>原文链接：<a href="https://blog.csdn.net/alone_map/article/details/51849115" target="_blank" rel="noopener">https://blog.csdn.net/alone_map/article/details/51849115</a></p>
+
+                            <hr>
+                        </div>
+                        <br>
+                        <div>
+                            
+                            <p>
+                                <i class="iconfont icon-tag"></i>
+                                
+                            </p>
+                            
+                                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="d-none d-lg-block col-lg-2 toc-container">
+            
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i> Toc:</p> 
+    <div id="tocbot"></div>
+  </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container comments mx-auto" id="comments">
+        
+    </div>
+</div>
+    
+</main>
+
+<footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/0x2e/Material-T" target="_blank" rel="nofollow noopener"> <b>Material-T</b></a>
+    <br>
+    
+  </div>
+</footer>
+
+  <!-- SCRIPTS -->
+  <script src="/lib/mdbootstrap/js/jquery-3.4.1.min.js"></script>
+  <script src="/lib/mdbootstrap/js/popper.min.js"></script>
+  <script src="/lib/mdbootstrap/js/bootstrap.min.js?v=4.3.1"></script>
+  <script src="/lib/mdbootstrap/js/mdb.min.js?v=4.8.7"></script>
+  <script src="/lib/nprogress/nprogress.min.js?v=0.2.0"></script>
+  <script src="/js/main.js"></script>
+  
+    
+      <script src="/lib/tocbot/tocbot.min.js?v=4.7.0"></script>
+    
+    <script src="/js/post.js"></script>
+  
+  
+    <script src="/lib/prettify/prettify.min.js?v=0.1.0"></script>
+    <script>
+      $(document).ready(function(){
+        $('pre').addClass('prettyprint linenums');
+        prettyPrint();
+      })
+    </script>
+  
+  
+    <script src="/lib/typed/typed.min.js?v=2.0.9"></script>
+    <script>
+        var typed = new Typed('#subtitle', {
+          strings: [
+            '  ',
+            "GRE-VPN&nbsp;",
+        ],
+        cursorChar: "_",
+        typeSpeed: 70,
+        startDelay: 300, //开始之前延迟300毫秒
+        loop: false,
+        });
+        $(".typed-cursor").addClass("h2");
+    </script>
+  
+  
+    <script src="/lib/anchor/anchor.min.js?v=4.2.0"></script>
+    <script>
+      anchors.options = {
+        placement: "right",
+        visible: "false",
+        
+      };
+      anchors.add(".post-content > h1,h2,h3,h4,h5,h6");
+    </script>
+  
+</body>
+</html>
